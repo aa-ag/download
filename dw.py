@@ -6,12 +6,20 @@ Documentation: https://pypi.org/project/pytube/
 '''
 ###--- Individual videos ---###
 
-yt = YouTube('https://www.youtube.com/watch?v=HHBsvKnCkwI')
+link = "https://www.youtube.com/watch?v=HHBsvKnCkwI"
 
-print(yt.title)
-print(yt.video_id)
-print(yt.thumbnail_url)
-print(yt.views)
+try:
+    youtube = YouTube(link)
+except:
+    print("Connection error")
+
+print(youtube.title)
+print(youtube.video_id)
+print(youtube.thumbnail_url)
+print(youtube.views)
+
+stream = youtube.streams.first()
+stream.download()
 
 # SAVE_PATH = "E:/"
 
